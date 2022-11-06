@@ -1,5 +1,20 @@
 <?xml version="1.0"?>
 <config>
+        <hello-world>
+            <label>Training</label>
+           <title>Training</title>
+           <bundle>training</bundle>
+           <pages>
+               <hello-antelopes>
+                    <label>Hello World</label>
+                    <title>Hello World</title>
+                    <bundle>training</bundle>
+                    <controller>hello</controller>
+                    <action>index</action>
+                    <visible>1</visible>
+               </hello-antelopes>
+           </pages>
+       </hello-world>
     <!-- You can control navigation order here and add your custom navigation entries -->
     <dashboard>
         <label>Dashboard</label>
