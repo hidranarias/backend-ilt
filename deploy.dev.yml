@@ -1,6 +1,6 @@
 version: "0.1"
 
-namespace: spryker_b2c_dev
+namespace: backendbasics-ilt-221108
 tag: 'dev'
 
 environment: docker.dev
@@ -169,7 +169,7 @@ services:
             username: "root"
             password: "secret"
         endpoints:
-            localhost:3306:
+            localhost:3308:
                 protocol: tcp
     broker:
         engine: rabbitmq
