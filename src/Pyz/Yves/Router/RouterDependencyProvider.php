@@ -8,6 +8,7 @@
 namespace Pyz\Yves\Router;
 
 use Pyz\Yves\ExampleProductSalePage\Plugin\Router\ExampleProductSaleRouteProviderPlugin;
+use Pyz\Yves\TrainingPage\Plugin\Router\TrainingPageRouteProviderPlugin;
 use Spryker\Yves\HealthCheck\Plugin\Router\HealthCheckRouteProviderPlugin;
 use Spryker\Yves\Router\Plugin\RouteManipulator\LanguageDefaultPostAddRouteManipulatorPlugin;
 use Spryker\Yves\Router\Plugin\RouteManipulator\SslPostAddRouteManipulatorPlugin;
@@ -61,6 +62,7 @@ class RouterDependencyProvider extends SprykerRouterDependencyProvider
     protected function getRouterPlugins(): array
     {
         return [
+
             new YvesRouterPlugin(),
             new StorageRouterPlugin(),
             // This router will only be hit, when no other router was able to match/generate.
@@ -74,6 +76,7 @@ class RouterDependencyProvider extends SprykerRouterDependencyProvider
     protected function getRouteProvider(): array
     {
         return [
+            new TrainingPageRouteProviderPlugin(),
             new ErrorPageRouteProviderPlugin(),
             new HomePageRouteProviderPlugin(),
             new CheckoutPageRouteProviderPlugin(),
