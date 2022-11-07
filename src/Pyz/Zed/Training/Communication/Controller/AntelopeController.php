@@ -15,16 +15,17 @@ class AntelopeController extends AbstractController
     public function addAction(Request $request): array
     {
         $antelopeTransfer = new AntelopeTransfer();
-        $antelopeTransfer->setName($request->get('name'));
+        $name = $request->get('name');
+        $antelopeTransfer->setName($name);
+        if ($name) {
+            $antelopeResponseTransfer = $this->getFacade()
+                ->findAntelope((new AntelopeCriteriaTransfer())->setName($antelopeTransfer->getName()));
 
-        $antelopeResponseTransfer = $this->getFacade()
-            ->findAntelope((new AntelopeCriteriaTransfer())->setName($antelopeTransfer->getName()));
-
-        if (!$antelopeResponseTransfer->getAntelope()) {
-            $antelopeTransfer = $this->getFacade()
-                ->createAntelope($antelopeTransfer);
+            if (!$antelopeResponseTransfer->getAntelope()) {
+                $antelopeTransfer = $this->getFacade()
+                    ->createAntelope($antelopeTransfer);
+            }
         }
-
         return $this->viewResponse([
             'antelope' => $antelopeTransfer,
         ]);
