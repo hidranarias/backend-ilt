@@ -20,6 +20,7 @@ use Generated\Shared\Transfer\PaymentReservationCanceledTransfer;
 use Monolog\Logger;
 use Pyz\Shared\Console\ConsoleConstants;
 use Pyz\Shared\Scheduler\SchedulerConfig;
+use Pyz\Shared\Training\TrainingConstants;
 use Pyz\Yves\ShopApplication\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Pyz\Zed\Oms\OmsConfig;
@@ -105,7 +106,7 @@ $sprykerBackendHost = getenv('SPRYKER_BE_HOST') ?: 'not-configured-host';
 $sprykerFrontendHost = getenv('SPRYKER_FE_HOST') ?: 'not-configured-host';
 
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
-
+$config[TrainingConstants::MY_DEFAULT_STORE] = 'Hidran';
 $config[KernelConstants::RESOLVABLE_CLASS_NAMES_CACHE_ENABLED] = true;
 $config[KernelConstants::RESOLVED_INSTANCE_CACHE_ENABLED] = true;
 
@@ -219,10 +220,10 @@ $config[OauthConstants::PRIVATE_KEY_PATH] = str_replace(
 $config[OauthConstants::PUBLIC_KEY_PATH]
     = $config[OauthCryptographyConstants::PUBLIC_KEY_PATH]
     = str_replace(
-        '__LINE__',
-        PHP_EOL,
-        getenv('SPRYKER_OAUTH_KEY_PUBLIC') ?: ''
-    ) ?: null;
+    '__LINE__',
+    PHP_EOL,
+    getenv('SPRYKER_OAUTH_KEY_PUBLIC') ?: ''
+) ?: null;
 $config[OauthConstants::ENCRYPTION_KEY] = getenv('SPRYKER_OAUTH_ENCRYPTION_KEY') ?: null;
 $config[OauthConstants::OAUTH_CLIENT_IDENTIFIER] = getenv('SPRYKER_OAUTH_CLIENT_IDENTIFIER') ?: null;
 $config[OauthConstants::OAUTH_CLIENT_SECRET] = getenv('SPRYKER_OAUTH_CLIENT_SECRET') ?: null;
@@ -553,10 +554,10 @@ $config[ApplicationConstants::BASE_URL_YVES]
     = $config[ProductManagementConstants::BASE_URL_YVES]
     = $config[NewsletterConstants::BASE_URL_YVES]
     = sprintf(
-        'https://%s%s',
-        $yvesHost,
-        $yvesPort !== 443 ? ':' . $yvesPort : ''
-    );
+    'https://%s%s',
+    $yvesHost,
+    $yvesPort !== 443 ? ':' . $yvesPort : ''
+);
 
 $config[ShopUiConstants::YVES_ASSETS_URL_PATTERN] = '/assets/' . (getenv('SPRYKER_BUILD_HASH') ?: 'current') . '/%theme%/';
 
@@ -568,10 +569,10 @@ $glueHost = getenv('SPRYKER_API_HOST') ?: 'localhost';
 $gluePort = (int)(getenv('SPRYKER_API_PORT')) ?: 443;
 $config[GlueApplicationConstants::GLUE_APPLICATION_DOMAIN]
     = sprintf(
-        'https://%s%s',
-        $glueHost,
-        $gluePort !== 443 ? ':' . $gluePort : ''
-    );
+    'https://%s%s',
+    $glueHost,
+    $gluePort !== 443 ? ':' . $gluePort : ''
+);
 
 if (class_exists(TestifyConstants::class)) {
     $config[TestifyConstants::GLUE_APPLICATION_DOMAIN] = $config[GlueApplicationConstants::GLUE_APPLICATION_DOMAIN];

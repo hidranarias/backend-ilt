@@ -21,6 +21,7 @@ class ProfileForm extends SprykerProfileForm
 
     public function addAntelopeField(FormBuilderInterface $builder): ProfileForm
     {
+
         $builder->add(self::FIELD_ANTELOPE, TextType::class, [
             'label' => 'customer.profile.antelope',
             'required' => true,

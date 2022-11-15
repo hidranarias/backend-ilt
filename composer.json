@@ -15,6 +15,7 @@
         "ext-readline": "*",
         "ext-redis": "*",
         "spryker-eco/loggly": "^0.1.1",
+        "spryker-eco/payone": "^4.4",
         "spryker-feature/agent-assist": "^202204.0",
         "spryker-feature/alternative-products": "^202204.0",
         "spryker-feature/availability-notification": "^202204.0",
